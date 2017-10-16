@@ -5,7 +5,7 @@
 ## Installation
 
 ```sh
-npm install ant-api-sort -g 
+npm install antd-api-sort -g 
 ```
 
 ## Usage
