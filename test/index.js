@@ -2,7 +2,7 @@ const fs = require('fs');
 const path = require('path');
 const assert = require('assert');
 const remark = require('remark');
-const { sort, getCellValue } = require('../sort');
+const { sort, getCellValue } = require('../bin/index.js');
 
 function getCellsValue(ast) {
 	return ast.children[0].children.slice(1).map(child => getCellValue(child));
@@ -58,6 +58,25 @@ describe('# ant-design component markdown', () => {
 				'onChange',
 				'onSearch',
 				'onSelect'
+			]);
+		});
+	});
+
+	describe('# Grid component markdown', () => {
+		it('should follow certain rule', () => {
+			const { sorted } = getTypes('grid');
+
+			assert.deepEqual(sorted, [
+				'offset',
+				'order',
+				'pull',
+				'push',
+				'span',
+				'xs',
+				'sm',
+				'md',
+				'lg',
+				'xl'
 			]);
 		});
 	});
