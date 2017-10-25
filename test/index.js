@@ -72,6 +72,7 @@ describe('# ant-design component markdown', () => {
 				'pull',
 				'push',
 				'span',
+				'y',
 				'xs',
 				'sm',
 				'md',
