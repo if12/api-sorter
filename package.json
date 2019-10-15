@@ -1,7 +1,8 @@
 {
   "name": "api-sorter",
   "bin": {
-    "as": "./bin/index.js"
+    "as": "./bin/index.js",
+    "api-sorter": "./bin/index.js"
   },
   "version": "0.1.0",
   "scripts": {
@@ -13,14 +14,14 @@
     "majo": "^0.4.1",
     "remark": "^8.0.0",
     "remark-frontmatter": "^1.1.0",
-    "remark-yaml-config": "^4.0.1",
+    "remark-yaml-config": "^4.0.1"
+  },
+  "devDependencies": {
+    "mocha": "^4.0.1",
     "babel-eslint": "^10.0.1",
     "eslint": "^5.9.0",
     "eslint-config-ali": "^4.0.0",
     "eslint-plugin-import": "^2.14.0",
     "eslint-plugin-react": "^7.11.1"
-  },
-  "devDependencies": {
-    "mocha": "^4.0.1"
   }
 }
