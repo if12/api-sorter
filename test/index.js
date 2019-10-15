@@ -2,7 +2,11 @@ const fs = require('fs');
 const path = require('path');
 const assert = require('assert');
 const remark = require('remark');
-const { sort, getCellValue } = require('../bin/index.js');
+const sortAPI = require('../index.js');
+
+function getCellValue(node) {
+  return node.children[0].children[0].value;
+}
 
 function getCellsValue(ast) {
   return ast.children[0].children.slice(1).map(child => getCellValue(child));
@@ -14,7 +18,7 @@ function getTypes(name) {
   const ast = remark().parse(md);
   return {
     primitive: getCellsValue(ast),
-    sorted: getCellsValue(sort(ast)),
+    sorted: getCellsValue(sortAPI.sort(ast)),
   };
 }
 

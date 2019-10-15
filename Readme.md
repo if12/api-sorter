@@ -8,10 +8,3 @@
 npm install api-sorter -g 
 ```
 
-## Usage
-
-```bash
-cd ant-design # enter your ant-design local path
-as
-```
-

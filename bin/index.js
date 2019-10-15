@@ -7,7 +7,7 @@ program
     '-f, --file [file]',
     'Specify which file to be transformed',
     // default value
-    'components/**/index.+(zh-CN|en-US).md'
+    '**.md'
   )
   .parse(process.argv);
 
