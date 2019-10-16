@@ -40,6 +40,6 @@ apiSorter will return a `Promise`.
 
 #### AST
 
-Get Markdown AST using `[unified](https://github.com/unifiedjs/unified)` and `[remark-parse](https://github.com/remarkjs/remark/tree/master/packages/remark-parse)`.
+Get Markdown AST using [unified](https://github.com/unifiedjs/unified) and [remark-parse](https://github.com/remarkjs/remark/tree/master/packages/remark-parse).
 
 it will return sorted AST.
