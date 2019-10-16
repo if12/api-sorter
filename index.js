@@ -52,16 +52,34 @@ function sizeSort(nodes) {
   return nodes.sort((...comparison) => asciiSort(...comparison.map(val => sizeBreakPoints.indexOf(getCellValue(val).toLowerCase()))));
 }
 
+function isIgnorePattern(node) {
+  if (!node) {
+    return false;
+  }
+
+  const { type, children = [] } = node;
+  const childNode = children[0];
+  if (type === 'paragraph' && childNode.value === '@sorter-ignore') {
+    return true;
+  } else {
+    return false;
+  }
+}
+
 function sort(ast) {
-  ast.children.forEach((child) => {
+  ast.children = ast.children.reduce((acc, child, index, children) => {
     const staticProps = [];
     // prefix with `on`
     const dynamicProps = [];
     // one of ['xs', 'sm', 'md', 'lg', 'xl']
     const sizeProps = [];
 
+    if (isIgnorePattern(child)) {
+      return acc;
+    }
+
     // find table markdown type
-    if (child.type === 'table') {
+    if (child.type === 'table' && !isIgnorePattern(children[index - 1])) {
       // slice will create new array, so sort can affect the original array.
       // slice(1) cut down the thead
       child.children.slice(1).forEach((node) => {
@@ -82,7 +100,11 @@ function sort(ast) {
         ...alphabetSort(dynamicProps),
       ];
     }
-  });
+
+    acc.push(child);
+
+    return acc;
+  }, []);
 
   return ast;
 }

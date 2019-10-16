@@ -83,4 +83,11 @@ describe('# ant-design component markdown', () => {
       ]);
     });
   });
+
+  describe('# Ignore sorter', () => {
+    it('should ignore sorter when meet @sorter-ignore above', () => {
+      const { sorted } = getTypes('ignore');
+      assert.deepEqual(sorted, ['span', 'order', 'offset']);
+    });
+  });
 });
