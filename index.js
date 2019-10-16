@@ -1,5 +1,4 @@
 const majo = require('majo');
-const style = require('ansi-styles');
 const unified = require('unified');
 const parse = require('remark-parse');
 const stringify = require('remark-stringify');
@@ -124,12 +123,7 @@ function sortMiddleware(ctx) {
 const apiSorter = ({ file, dest = '.' } = {}) => stream
   .source(file)
   .use(sortMiddleware)
-  .dest(dest)
-  .then(() => {
-    /* eslint-disable no-console */
-    console.log(`${style.green.open}Sorted API successfully!${style.green.close}`);
-    /* eslint-enable no-console */
-  });
+  .dest(dest);
 
 apiSorter.sort = sort;
 

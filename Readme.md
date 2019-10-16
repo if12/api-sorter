@@ -7,5 +7,39 @@ Used by [antd](https://github.com/ant-design/ant-design/blob/3.19.0/scripts/sort
 ## Installation
 
 ```sh
-npm install api-sorter -g
+npm install api-sorter
 ```
+
+## Usage
+
+```js
+const apiSorter = require('api-sorter');
+apiSorter({ file: 'components/**/index.+(zh-CN|en-US).md' }).then(() => {
+  console.log('Sorted API successfully!');
+});
+```
+
+## API
+
+### apiSorter({ file, [dest] })
+
+#### file
+
+Type: `Array string`
+Required: `true`
+
+#### dest
+
+Type: `string`
+Required: `false`
+Default: `.`
+
+apiSorter will return a `Promise`.
+
+### apiSorter.sort(AST)
+
+#### AST
+
+Get Markdown AST using `[unified](https://github.com/unifiedjs/unified)` and `[remark-parse](https://github.com/remarkjs/remark/tree/master/packages/remark-parse)`.
+
+it will return sorted AST.

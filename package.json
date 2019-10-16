@@ -9,7 +9,6 @@
     "test": "mocha"
   },
   "dependencies": {
-    "ansi-styles": "^3.2.0",
     "commander": "^2.11.0",
     "majo": "^0.4.1",
     "remark": "^8.0.0",

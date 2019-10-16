@@ -9,7 +9,11 @@ function getCellValue(node) {
 }
 
 function getCellsValue(ast) {
-  return ast.children[0].children.slice(1).map(child => getCellValue(child));
+  const tbodies = ast.children.reduce((acc, table) => {
+    const tbody = table.children.slice(1);
+    return acc.concat(tbody);
+  }, []);
+  return tbodies.map(child => getCellValue(child));
 }
 
 function getTypes(name) {
@@ -87,7 +91,7 @@ describe('# ant-design component markdown', () => {
   describe('# Ignore sorter', () => {
     it('should ignore sorter when meet @sorter-ignore above', () => {
       const { sorted } = getTypes('ignore');
-      assert.deepEqual(sorted, ['span', 'order', 'offset']);
+      assert.deepEqual(sorted, ['offset', 'order', 'span', 'span', 'order', 'offset']);
     });
   });
 });
