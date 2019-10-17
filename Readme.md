@@ -26,15 +26,18 @@ apiSorter({ file: 'components/**/index.+(zh-CN|en-US).md' }).then(() => {
 #### file
 
 Type: `Array string`
+
 Required: `true`
 
 #### dest
 
 Type: `string`
+
 Required: `false`
+
 Default: `.`
 
-apiSorter will return a `Promise`.
+It will return a `Promise`.
 
 ### apiSorter.sort(AST)
 
@@ -42,4 +45,4 @@ apiSorter will return a `Promise`.
 
 Get Markdown AST using [unified](https://github.com/unifiedjs/unified) and [remark-parse](https://github.com/remarkjs/remark/tree/master/packages/remark-parse).
 
-it will return sorted AST.
+It will return sorted AST.
